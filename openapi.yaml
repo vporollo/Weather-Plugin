@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Weather Finder
+  description: A plugin that allows the user to get current, historical, and forecasted weather data for multiple locations at once using ChatGPT.
+  version: 'v1'
+servers:
+  - url: https://weather-plugin.vichiporollo.repl.co
+paths:
+  /weather/current:
+    get:
+      operationId: get_current_weather
+      summary: Get the current weather for multiple locations
+      parameters:
+        - name: locations
+          in: query
+          required: true
+          description: Comma-separated list of locations
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /weather/historical:
+    get:
+      operationId: get_historical_weather
+      summary: Get the historical weather for a location
+      parameters:
+        - name: location
+          in: query
+          required: true
+          description: Location
+          schema:
+            type: string
+        - name: start_date
+          in: query
+          required: true
+          description: Start date in YYYY-MM-DD format
+          schema:
+            type: string
+        - name: end_date
+          in: query
+          required: true
+          description: End date in YYYY-MM-DD format
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /weather/forecast:
+    get:
+      operationId: get_forecast
+      summary: Get the weather forecast for a location
+      parameters:
+        - name: location
+          in: query
+          required: true
+          description: Location
+          schema:
+            type: string
+        - name: forecast_days
+          in: query
+          required: true
+          description: Number of forecast days
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true

@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Weather Finder",
+  "name_for_model": "weatherfinder",
+  "description_for_human": "Plugin for getting current, historical, and forecasted weather data for multiple locations at once.",
+  "description_for_model": "This is a plugin for obtaining weather data. You can get the current weather, historical weather, and weather forecast for multiple locations.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://weather-plugin.vichiporollo.repl.co/.well-known/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "http://localhost:5000/logo.png",
+  "contact_email": "vichiporollo@gmail.com",
+  "legal_info_url": "http://www.example.com/legal"
+}
